@@ -1,0 +1,25 @@
+{
+  "name": "softuni-reactjs-full-course-25",
+  "version": "1.0.0",
+  "description": "Studying React in the SoftUni ReactJS Full Course 2025 — building dynamic web apps, mastering components, hooks and the Context API, client-side routing, state management, async API integration, testing and deployment using JavaScript/TypeScript, Vite and React Router.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx babel --watch src --out-dir dist --presets react-app/prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarinovM03/SoftUni-ReactJS-Full-Course-25.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MarinovM03/SoftUni-ReactJS-Full-Course-25/issues"
+  },
+  "homepage": "https://github.com/MarinovM03/SoftUni-ReactJS-Full-Course-25#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2"
+  }
+}
