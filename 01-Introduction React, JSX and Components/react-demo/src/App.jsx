@@ -4,12 +4,17 @@ import Footer from './Footer.jsx';
 import './App.css'
 
 function App() {
+  const articles = [
+    { title: 'First Article', content: 'Content 1'},
+    { title: 'Second Article', content: 'Content 2'},
+    { title: 'Third Article', content: 'Content 3'},
+  ];
 
   return (
     <main>
       <Header />
 
-      <Body />
+      <Body articles={articles} />
 
       <Footer />
     </main>
