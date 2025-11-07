@@ -1,7 +1,8 @@
-export default function Article() {
+export default function Article(props) {
     return (
         <article>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, molestiae!</p>
+            <h3>{props.title}</h3>
+            <p>{props.content}</p>
         </article>
     );
 };
