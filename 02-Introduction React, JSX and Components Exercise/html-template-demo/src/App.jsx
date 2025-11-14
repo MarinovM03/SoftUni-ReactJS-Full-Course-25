@@ -1,18 +1,12 @@
+import Footer from "./components/Footer.jsx"
 import Header from "./components/Header.jsx"
+import Preloader from "./components/Preloader.jsx"
 import WelcomeArea from "./components/WelcomeArea.jsx"
 
 function App() {
     return (
         <main>
-            {/* ***** Preloader Start ***** */}
-            <div id="preloader">
-                <div className="jumper">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>  
-            {/* ***** Preloader End ***** */}
+            <Preloader />
 
             <Header />
 
@@ -535,26 +529,7 @@ function App() {
             {/* <!-- ***** Contact Us End ***** --> */}
 
             {/* <!-- ***** Footer Start ***** --> */}
-            <footer>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-12 col-md-12 col-sm-12">
-                            <ul className="social">
-                                <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i className="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i className="fa fa-rss"></i></a></li>
-                                <li><a href="#"><i className="fa fa-dribbble"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <p className="copyright">Copyright &copy; 2020 Softy Pinko Company - Design: TemplateMo</p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
         </main>
     )
 }
