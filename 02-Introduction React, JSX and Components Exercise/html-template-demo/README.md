@@ -6,4 +6,4 @@
 - [x] Clean up default React app
 - [x] Add template resources to public folder
 - [x] Add HTML to App.jsx component
-- [x] Clean up jsx errors
+- [x] Clean up jsx errors or use HTML to jsx converter
