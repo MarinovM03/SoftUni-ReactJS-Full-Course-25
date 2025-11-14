@@ -6,7 +6,7 @@ import Counter from "./components/Counter.jsx"
 import Features from "./components/Features.jsx"
 import Footer from "./components/Footer.jsx"
 import Header from "./components/Header.jsx"
-import HomeParallax from "./components/HomeParallax.jsx"
+import WorkProcessSection from "./components/WorkProcessSection.jsx"
 import Preloader from "./components/Preloader.jsx"
 import Pricing from "./components/Pricing.jsx"
 import Testimonials from "./components/Testimonials.jsx"
@@ -27,7 +27,7 @@ function App() {
 
             <BigFeatureRight />
 
-            <HomeParallax />
+            <WorkProcessSection />
 
             <Testimonials />
 
