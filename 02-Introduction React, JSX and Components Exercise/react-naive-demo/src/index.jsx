@@ -12,14 +12,34 @@ import React from './react.js';
 //     ),
 // );
 
+function Article({
+    title,
+    content
+}) {
+    return (
+        <article>
+            <h3>{title}</h3>
+            <p>{content}</p>
+        </article>
+    );
+}
 
-const reactElement = (
-    <header class="site-header">
-        <h1>My Custom React Naive JSX</h1>
-        <h2>Awesome!!!</h2>
-    </header>
-);
+function App() {
+    return (
+        <div>
+        <header class="site-header">
+            <h1>My Custom React Naive JSX</h1>
+            <h2>Awesome!!!</h2>
+        </header>
+
+            <main>
+                <Article title="My first article" content="Lorem ipsum dolor"/>
+            </main>
+        </div>
+    );
+}
 
 // Setup React
 const rootDomElement = document.getElementById('root');
-React.render(reactElement, rootDomElement);
+
+React.render(<App />, rootDomElement);

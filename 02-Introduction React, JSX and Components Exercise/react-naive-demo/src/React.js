@@ -16,6 +16,14 @@ export default {
             return document.createTextNode(node);
         }
 
+        // Check if component
+        if (typeof node.type === 'function') {
+            // const component = node.type;
+            const element = node.type({ ...node.props, children: node.children });
+
+            return this._createDomElement(element);
+        }
+
         // If react element
         const domElement = document.createElement(node.type);
 
