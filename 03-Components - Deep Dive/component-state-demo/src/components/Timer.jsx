@@ -5,15 +5,14 @@ export default function Timer() {
     // let seconds = 0;
 
     setTimeout(() => {
-        console.log(seconds);
         // seconds++;
         setSeconds(seconds + 1);  // Disclaimer: There is a better way
     }, 1000);
 
     return (
-        <div>
+        <section>
             <h2>Timer</h2>
             <div>{seconds} seconds</div>
-        </div>
+        </section>
     );
 }

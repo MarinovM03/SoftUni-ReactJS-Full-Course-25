@@ -1,4 +1,5 @@
 import './App.css'
+import Counter from './components/Counter.jsx'
 import Timer from './components/Timer.jsx'
 
 function App() {
@@ -7,6 +8,9 @@ function App() {
             <h1>Component Deep Dive</h1>
 
             <Timer />
+
+            <Counter />
+
         </div>
     )
 }
