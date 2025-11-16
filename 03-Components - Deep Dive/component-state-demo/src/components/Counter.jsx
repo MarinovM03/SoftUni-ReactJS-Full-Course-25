@@ -3,8 +3,11 @@ import { useState } from "react";
 export default function Counter() {
     const [count, setCount] = useState(0);
 
-    const incrementClickHandler = () => {
-        setCount(count + 1);  // Not recommended way
+    const incrementClickHandler = (event) => {
+        // console.log(event);
+
+        // setCount(count + 1);  // Race condition prone
+        setCount(prevState => prevState + 1);  // Race condition safe
     }
 
     return (
