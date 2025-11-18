@@ -12,12 +12,12 @@ This repository tracks my progress through the SoftUni curriculum via labs, home
 
 ## Highlights
 
-- **Core React:** components, props, state, effects, and custom hooks  
-- **State management:** Context API and practical state patterns  
-- **Routing:** nested routes, guards, loaders/actions with React Router  
-- **Data fetching:** `fetch`/`async`–`await`, error & loading states, API abstraction  
-- **Testing:** unit & integration tests (Jest + React Testing Library)  
-- **Tooling:** TypeScript, Vite, ESLint, Prettier, environment configs  
+- **Core React:** components, props, state, effects, and custom hooks
+- **State management:** Context API and practical state patterns
+- **Routing:** nested routes, guards, loaders/actions with React Router
+- **Data fetching:** `fetch`/`async`–`await`, error & loading states, API abstraction
+- **Testing:** unit & integration tests (Jest + React Testing Library)
+- **Tooling:** TypeScript, Vite, ESLint, Prettier, environment configs
 - **Deployment:** optimized builds and shipping to modern hosts
 
 ---
