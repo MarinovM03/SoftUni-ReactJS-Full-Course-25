@@ -26,18 +26,26 @@ export default function Calendar() {
             <section>
                 <h2>Calendar</h2>
 
-                <strong>Invalid Day</strong>
+                <p><strong>Invalid Day</strong></p>
 
                 <button onClick={resetDayClickHandler}>Reset Days</button>
             </section>
         );
     }
 
+    const isWorkedDay = day < 5;
+
     return (
         <section>
             <h2>Calendar</h2>
 
-            <div>Current Day: {days[day]}</div>
+            <h3>
+                {isWorkedDay 
+                    ? <span>Workday</span> 
+                    : <span>Weekend</span>
+                }
+            </h3>
+            <div>Current Day: <strong>{days[day]}</strong></div>
 
             <button onClick={nextDayClickHandler}>Next Day</button>
         </section>
