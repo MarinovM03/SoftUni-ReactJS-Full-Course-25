@@ -9,6 +9,17 @@ export default function MovieList() {
         'Fury',
     ]);
 
+    const updateMoviesHandler = () => {
+        setMovies(oldMovies => {
+            // const newMovies = oldMovies.slice();  // New reference
+            const newMovies = [...oldMovies];  // New reference
+
+            newMovies.push('Star Wars');
+
+            return newMovies;
+        });
+    };
+
     return (
         <section>
             <h2>Movie List</h2>
@@ -16,6 +27,8 @@ export default function MovieList() {
             <ul>
                 {movies.map(movie => <li>{movie}</li>)}
             </ul>
+
+            <button onClick={updateMoviesHandler}>Update Movies</button>
         </section>
     );
 }
