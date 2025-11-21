@@ -17,6 +17,22 @@ export default function Calendar() {
         setDay(prevState => prevState + 1);
     }
 
+    const resetDayClickHandler = () => {
+        setDay(0);
+    }
+
+    if (day > 6) {
+        return  (
+            <section>
+                <h2>Calendar</h2>
+
+                <strong>Invalid Day</strong>
+
+                <button onClick={resetDayClickHandler}>Reset Days</button>
+            </section>
+        );
+    }
+
     return (
         <section>
             <h2>Calendar</h2>
