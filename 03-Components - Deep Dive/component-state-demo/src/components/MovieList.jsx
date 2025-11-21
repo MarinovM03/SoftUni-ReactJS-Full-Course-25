@@ -14,7 +14,11 @@ export default function MovieList() {
             // const newMovies = oldMovies.slice();  // New reference
             const newMovies = [...oldMovies];  // New reference
 
-            newMovies.push('Star Wars');
+            // newMovies.push('Star Wars');
+
+            const removedMovie = newMovies.shift();
+
+            newMovies.push(removedMovie);
 
             return newMovies;
         });
@@ -25,7 +29,7 @@ export default function MovieList() {
             <h2>Movie List</h2>
 
             <ul>
-                {movies.map(movie => <li>{movie}</li>)}
+                {movies.map(movie => <li key={movie}>{movie}</li>)}
             </ul>
 
             <button onClick={updateMoviesHandler}>Update Movies</button>
