@@ -33,19 +33,32 @@ export default function Calendar() {
         );
     }
 
-    const isWorkedDay = day < 5;
+    const isWorkday = day < 5;
 
     return (
         <section>
             <h2>Calendar</h2>
 
+            <div>Current Day: <strong>{days[day]}</strong></div>
+
             <h3>
-                {isWorkedDay 
+                {isWorkday 
                     ? <span>Workday</span> 
                     : <span>Weekend</span>
                 }
             </h3>
-            <div>Current Day: <strong>{days[day]}</strong></div>
+
+            {isWorkday && (
+                <div>
+                    <h3>Work Schedule</h3>
+
+                    <ul>
+                        <li>First</li>
+                        <li>Second</li>
+                        <li>Third</li>
+                    </ul>
+                </div>
+            )}
 
             <button onClick={nextDayClickHandler}>Next Day</button>
         </section>
