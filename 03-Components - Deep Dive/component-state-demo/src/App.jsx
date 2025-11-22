@@ -8,7 +8,7 @@ import Typer from './components/Typer.jsx'
 function App() {
     return (
         <div>
-            <h1>Component Deep Dive</h1>
+            <h1>Components Deep Dive</h1>
 
             <Timer />
 

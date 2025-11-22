@@ -1,16 +1,20 @@
-export default function Typer() {
+import { useEffect, useState } from "react";
 
-    const keyDownHandler = (event) => {
-        console.log(event.key);
-        
-    };
+export default function Typer() {
+    const [key, setKey] = useState('Press any key to start');
+
+    useEffect(() => {
+        window.addEventListener('keypress', (event) => {
+            setKey(event.key);
+        });
+    }, []);
 
     return (
-        <section tabIndex={0} onKeyDown={keyDownHandler}>
+        <section>
             <h2>Typer</h2>
 
             <p>Pressed Key</p>
-            <strong>A</strong>
+            <strong>{key}</strong>
         </section>
     );
 }
