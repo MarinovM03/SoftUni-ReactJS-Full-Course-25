@@ -4,11 +4,17 @@ export default function Typer() {
     const [key, setKey] = useState('Press any key to start!');
 
     useEffect(() => {
-        window.addEventListener('keypress', (event) => {
+        const keyPressHandler = (event) => {
             console.log(event.key);
             
             setKey(event.key);
-        });
+        }
+
+        window.addEventListener('keypress', keyPressHandler);
+
+        return () => {
+            window.removeEventListener('keypress', keyPressHandler);
+        }
     }, []);
 
     useEffect(() => {
