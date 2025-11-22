@@ -5,9 +5,26 @@ export default function Typer() {
 
     useEffect(() => {
         window.addEventListener('keypress', (event) => {
+            console.log(event.key);
+            
             setKey(event.key);
         });
     }, []);
+
+    useEffect(() => {
+        console.log('Mount');
+    }, []);
+
+    useEffect(() => {
+        console.log('Update Key');
+    }, [key]);
+
+    useEffect(() => {
+        return () => {
+            console.log('Unmount');
+        }
+    }, []);
+
 
     return (
         <div>
