@@ -3,7 +3,7 @@ import Calendar from './components/Calendar.jsx'
 import Counter from './components/Counter.jsx'
 import MovieList from './components/MovieList.jsx'
 import Timer from './components/Timer.jsx'
-import Typer from './components/Typer.jsx'
+import TyperSection from './components/TyperSection.jsx'
 
 function App() {
     return (
@@ -18,7 +18,7 @@ function App() {
 
             <MovieList />
 
-            <Typer />
+            <TyperSection />
         </div>
     )
 }

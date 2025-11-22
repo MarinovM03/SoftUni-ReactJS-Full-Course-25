@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function Typer() {
-    const [key, setKey] = useState('Press any key to start');
+    const [key, setKey] = useState('Press any key to start!');
 
     useEffect(() => {
         window.addEventListener('keypress', (event) => {
@@ -10,11 +10,9 @@ export default function Typer() {
     }, []);
 
     return (
-        <section>
-            <h2>Typer</h2>
-
+        <div>
             <p>Pressed Key</p>
             <strong>{key}</strong>
-        </section>
+        </div>
     );
 }
