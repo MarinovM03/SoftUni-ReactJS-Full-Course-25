@@ -16,7 +16,6 @@ function App() {
                     <UserList />
 
                     <Pagination />
-
                 </section>
             </main>
 
