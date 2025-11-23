@@ -46,7 +46,7 @@ function App() {
         };
 
         userData.createdAt = new Date().toISOString();
-        userData.createdAt = new Date().toISOString();
+        userData.updatedAt = new Date().toISOString();
 
         // Create new user request
         fetch('http://localhost:3030/jsonstore/users', {
@@ -56,8 +56,11 @@ function App() {
             },
             body: JSON.stringify(userData)
         })
-        .then(() => setForceRefresh(state => !state))
-        .catch((err) => alert(err.message));
+            .then(() => {
+                closeUserModalHandler();
+                setForceRefresh(state => !state);
+            })
+            .catch((err) => alert(err.message));
         
     };
 
