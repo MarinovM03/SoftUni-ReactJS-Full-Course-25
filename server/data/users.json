@@ -46,5 +46,21 @@
       "street": "456 Elm St",
       "streetNumber": "7"
     }
+  },
+  "050258eb-7183-453d-a45a-0438f8ac38a8": {
+    "_id": "050258eb-7183-453d-a45a-0438f8ac38a8",
+    "firstName": "Ivo",
+    "lastName": "Papazov",
+    "email": "ivo@abv.bg",
+    "phoneNumber": "1232132",
+    "createdAt": "2025-11-23T07:22:00.358Z",
+    "updatedAt": "2025-11-23T07:22:00.358Z",
+    "imageUrl": "https://m.media-amazon.com/images/M/MV5BMjJhNmIzNTYtNTBkNS00NzZiLTgzMTItNDdmZjNlZmY2MTEzXkEyXkFqcGc@._V1_.jpg",
+    "address": {
+      "country": "Bulgaria",
+      "city": "Sofia",
+      "street": "Vitosha",
+      "streetNumber": "2"
+    }
   }
 }
