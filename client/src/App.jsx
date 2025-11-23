@@ -1,9 +1,27 @@
-function App() {
+import Header from "./components/Header.jsx";
+import Search from "./components/Search.jsx";
+import Footer from "./components/Footer.jsx";
+import UserList from "./components/UserList.jsx";
+import Pagination from "./components/Pagination.jsx";
 
-  return (
-    <div>
-        <h1>Hello</h1>
-    </div>
+function App() {
+    return (
+        <div>
+            <Header />
+
+            <main className="main">
+                <section className="card users-container">
+                    <Search />
+
+                    <UserList />
+
+                    <Pagination />
+
+                </section>
+            </main>
+
+            <Footer />
+        </div>
     );
 }
 
