@@ -2,6 +2,7 @@ import { useState } from "react";
 import UserDetails from "./UserDetails.jsx";
 import UserItem from "./UserItem.jsx";
 import UserDeleteModal from "./UserDeleteModal.jsx";
+import UserSaveModal from "./UserSaveModal.jsx";
 
 export default function UserList({
     users,
@@ -9,6 +10,7 @@ export default function UserList({
 }) {
     const [showUserDetails, setShowUserDetails] = useState(false);
     const [showUserDelete, setShowUserDelete] = useState(false);
+    const [showUserEdit, setShowUserEdit] = useState(false);
     const [selectedUserId, setSelectedUserId] = useState(null);
 
     const detailsActionClickHandler = (userId) => {
@@ -16,15 +18,53 @@ export default function UserList({
         setSelectedUserId(userId);
     };
 
+    const deleteActionClickHandler = (userId) => {
+        setSelectedUserId(userId);
+        setShowUserDelete(true);
+    };
+
+    const editActionClickHandler = (userId) => {
+        setSelectedUserId(userId);
+        setShowUserEdit(true);
+    };
+
     const closeModalHandler = () => {
         setShowUserDetails(false);
         setShowUserDelete(false);
+        setShowUserEdit(false);
         setSelectedUserId(null);
+        forceUserRefresh();
     };
 
-    const deleteActionClickHandler = (userId) => {
-        setShowUserDelete(true);
-        setSelectedUserId(userId);
+    const editUserHandler = async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        
+        const {country, city, street, streetNumber, ...userData} = Object.fromEntries(formData);
+
+        userData.address = {
+            country, 
+            city, 
+            street, 
+            streetNumber,
+        };
+
+        userData.updatedAt = new Date().toISOString();
+
+        try {
+            await fetch(`http://localhost:3030/jsonstore/users/${selectedUserId}`, {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(userData)
+            });
+
+            closeModalHandler();
+        } catch (err) {
+            alert(err.message);
+        }
     };
 
     return (
@@ -91,6 +131,7 @@ export default function UserList({
                             key={user._id} 
                             onDetailsClick={detailsActionClickHandler} 
                             onDeleteClick={deleteActionClickHandler}
+                            onEditClick={editActionClickHandler}
                         />
                     )}
                 </tbody>
@@ -107,10 +148,17 @@ export default function UserList({
                 <UserDeleteModal 
                     userId={selectedUserId}
                     onClose={closeModalHandler}
-                    forceUserRefresh={forceUserRefresh}
                 />
             )}
 
+            {showUserEdit && (
+                <UserSaveModal 
+                    userId={selectedUserId}
+                    onClose={closeModalHandler}
+                    onSubmit={editUserHandler}
+                    editMode
+                />
+            )}
         </div>
     );
 }

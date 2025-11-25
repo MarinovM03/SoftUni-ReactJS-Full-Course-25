@@ -1,14 +1,30 @@
-export default function CreateUserModal({
+import { useState } from "react";
+import { useEffect } from "react";
+
+export default function UserSaveModal({
+    editMode,
+    userId,
     onClose,
     onSubmit,
 }) {
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        if (editMode) {
+            fetch(`http://localhost:3030/jsonstore/users/${userId}`)
+                .then(response => response.json())
+                .then(result => setUser(result))
+                .catch(err => alert(err.message));
+        }
+    }, [editMode, userId]);
+
     return (
         <div className="overlay">
             <div className="backdrop" onClick={onClose}></div>
             <div className="modal">
                 <div className="user-container">
                     <header className="headers">
-                        <h2>Add User</h2>
+                        <h2>{editMode ? 'Edit' : 'Add'} User</h2>
                         <button className="btn close" onClick={onClose} >
                             <svg
                                 aria-hidden="true"
@@ -36,7 +52,7 @@ export default function CreateUserModal({
                                     <span>
                                         <i className="fa-solid fa-user"></i>
                                     </span>
-                                    <input id="firstName" name="firstName" type="text" />
+                                    <input id="firstName" name="firstName" type="text" defaultValue={user.firstName} />
                                 </div>
                             </div>
 
@@ -46,7 +62,7 @@ export default function CreateUserModal({
                                     <span>
                                         <i className="fa-solid fa-user"></i>
                                     </span>
-                                    <input id="lastName" name="lastName" type="text" />
+                                    <input id="lastName" name="lastName" type="text" defaultValue={user.lastName} />
                                 </div>
                             </div>
                         </div>
@@ -58,7 +74,7 @@ export default function CreateUserModal({
                                     <span>
                                         <i className="fa-solid fa-envelope"></i>
                                     </span>
-                                    <input id="email" name="email" type="text" />
+                                    <input id="email" name="email" type="text" defaultValue={user.email} />
                                 </div>
                             </div>
 
@@ -68,7 +84,7 @@ export default function CreateUserModal({
                                     <span>
                                         <i className="fa-solid fa-phone"></i>
                                     </span>
-                                    <input id="phoneNumber" name="phoneNumber" type="text" />
+                                    <input id="phoneNumber" name="phoneNumber" type="text" defaultValue={user.phoneNumber} />
                                 </div>
                             </div>
                         </div>
@@ -79,7 +95,7 @@ export default function CreateUserModal({
                                 <span>
                                     <i className="fa-solid fa-image"></i>
                                 </span>
-                                <input id="imageUrl" name="imageUrl" type="text" />
+                                <input id="imageUrl" name="imageUrl" type="text" defaultValue={user.imageUrl} />
                             </div>
                         </div>
 
@@ -90,7 +106,7 @@ export default function CreateUserModal({
                                     <span>
                                         <i className="fa-solid fa-map"></i>
                                     </span>
-                                    <input id="country" name="country" type="text" />
+                                    <input id="country" name="country" type="text" defaultValue={user.address?.country} />
                                 </div>
                             </div>
 
@@ -100,7 +116,7 @@ export default function CreateUserModal({
                                     <span>
                                         <i className="fa-solid fa-city"></i>
                                     </span>
-                                    <input id="city" name="city" type="text" />
+                                    <input id="city" name="city" type="text" defaultValue={user.address?.city} />
                                 </div>
                             </div>
                         </div>
@@ -112,7 +128,7 @@ export default function CreateUserModal({
                                     <span>
                                         <i className="fa-solid fa-map"></i>
                                     </span>
-                                    <input id="street" name="street" type="text" />
+                                    <input id="street" name="street" type="text" defaultValue={user.address?.street} />
                                 </div>
                             </div>
 
@@ -122,14 +138,14 @@ export default function CreateUserModal({
                                     <span>
                                         <i className="fa-solid fa-house-chimney"></i>
                                     </span>
-                                    <input id="streetNumber" name="streetNumber" type="text" />
+                                    <input id="streetNumber" name="streetNumber" type="text" defaultValue={user.address?.streetNumber} />
                                 </div>
                             </div>
                         </div>
 
                         <div id="form-actions">
                             <button id="action-save" className="btn" type="submit">
-                                Save
+                                {editMode ? 'Edit' : 'Create'}
                             </button>
                             <button id="action-cancel" className="btn" type="button" onClick={onClose}>
                                 Cancel

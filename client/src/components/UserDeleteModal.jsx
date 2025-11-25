@@ -1,7 +1,6 @@
 export default function UserDeleteModal({
     userId,
     onClose,
-    forceUserRefresh,
 }) {
 
     const deleteUserHandler = async() => {
@@ -11,7 +10,6 @@ export default function UserDeleteModal({
             });
             
             onClose();
-            forceUserRefresh();
         } catch (err) {
             alert(err.message);
         }

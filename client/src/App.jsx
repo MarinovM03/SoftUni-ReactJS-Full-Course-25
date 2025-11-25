@@ -4,7 +4,7 @@ import Footer from "./components/Footer.jsx";
 import Search from "./components/Search.jsx";
 import UserList from "./components/UserList.jsx";
 import Pagination from "./components/Pagination.jsx";
-import CreateUserModal from "./components/CreateUserModal.jsx";
+import UserSaveModal from "./components/UserSaveModal.jsx";
 import { useEffect } from "react";
 
 function App() {
@@ -84,7 +84,7 @@ function App() {
                 </section>
 
                 {showCreateUser && 
-                    <CreateUserModal 
+                    <UserSaveModal 
                         onClose={closeUserModalHandler} 
                         onSubmit={addUserSubmitHandler}
                     />
