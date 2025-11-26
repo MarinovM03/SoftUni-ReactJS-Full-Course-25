@@ -1,10 +1,15 @@
-import { useParams } from "react-router";
+import { useParams, useSearchParams } from "react-router";
 
 export default function City() {
     const params = useParams();
+    const [searchParams, setSearchParams] = useSearchParams();
 
     console.log(params);
+    console.log(searchParams.get('orderBy'));
     
+    // setTimeout(() => {
+    //     setSearchParams({ page: 1 });
+    // }, 2000);
 
     return (
         <>
