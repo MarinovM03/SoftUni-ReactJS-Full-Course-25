@@ -9,6 +9,7 @@ import Dashboard from './components/Dashboard.jsx';
 import AdminUsers from './components/AdminUsers.jsx';
 import AdminPosts from './components/AdminPosts.jsx';
 import Admin from './components/Admin.jsx';
+import Layout from './components/Layout.jsx';
 import styles from './App.module.css';
 
 function App() {
@@ -45,6 +46,11 @@ function App() {
                     <Route index element={<Dashboard />} />
                     <Route path='users' element={<AdminUsers />} />
                     <Route path='posts' element={<AdminPosts />} />
+                </Route>
+
+                <Route element={<Layout />}>
+                    <Route path='/layout-demo' element={<h3>Inside layout</h3>} />
+                    <Route path='/layout-demo2' element={<h3>Inside layout 2</h3>} />
                 </Route>
 
                 <Route path='*' element={<NotFound />} />
