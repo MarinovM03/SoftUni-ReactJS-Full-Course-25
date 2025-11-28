@@ -8,6 +8,7 @@ import Redirect from './components/Redirect.jsx';
 import Dashboard from './components/Dashboard.jsx';
 import AdminUsers from './components/AdminUsers.jsx';
 import AdminPosts from './components/AdminPosts.jsx';
+import Admin from './components/Admin.jsx';
 import styles from './App.module.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
                 <Link to="/cities:plovdiv">City</Link>
+                <Link to="/admin">Admin</Link>
             </nav>
 
             {/* <nav>
@@ -35,12 +37,12 @@ function App() {
 
             <Routes>
                 <Route path='/' element={<Home />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/cities/:city' element={<City />} />
+                <Route path='/about/*' element={<About />} />
+                <Route path='/cities/:city?' element={<City />} />
                 <Route path='/redirect' element={<Redirect />} />
 
-                <Route path='/admin'>
-                    <Route path='dashboard' element={<Dashboard />} />
+                <Route path='/admin' element={<Admin />}>
+                    <Route index element={<Dashboard />} />
                     <Route path='users' element={<AdminUsers />} />
                     <Route path='posts' element={<AdminPosts />} />
                 </Route>
