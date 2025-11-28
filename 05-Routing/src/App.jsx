@@ -1,4 +1,5 @@
 import { Routes, Route, Link, NavLink } from 'react-router';
+import { useState } from 'react';
 import './App.css'
 import Home from './components/Home.jsx';
 import About from './components/About.jsx';
@@ -10,9 +11,17 @@ import AdminUsers from './components/AdminUsers.jsx';
 import AdminPosts from './components/AdminPosts.jsx';
 import Admin from './components/Admin.jsx';
 import Layout from './components/Layout.jsx';
+import RouteGuard from './components/RouteGuard.jsx';
+import Profile from './components/Profile.jsx';
+import Login from './components/Login.jsx';
 import styles from './App.module.css';
 
 function App() {
+    const [user, setUser] = useState({
+        username: 'Peter',
+        role: 'admin',
+    }); 
+
     return (
         <>
             <h1>React Router</h1>
@@ -21,6 +30,7 @@ function App() {
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
                 <Link to="/cities:plovdiv">City</Link>
+                <Link to="/profile">Profile</Link>
                 <Link to="/admin">Admin</Link>
             </nav>
 
@@ -41,6 +51,7 @@ function App() {
                 <Route path='/about/*' element={<About />} />
                 <Route path='/cities/:city?' element={<City />} />
                 <Route path='/redirect' element={<Redirect />} />
+                <Route path='/login' element={<Login />} />
 
                 <Route path='/admin' element={<Admin />}>
                     <Route index element={<Dashboard />} />
@@ -51,6 +62,10 @@ function App() {
                 <Route element={<Layout />}>
                     <Route path='/layout-demo' element={<h3>Inside layout</h3>} />
                     <Route path='/layout-demo2' element={<h3>Inside layout 2</h3>} />
+                </Route>
+
+                <Route element={<RouteGuard user={user} />}>
+                    <Route path='/profile' element={<Profile user={user} />} />
                 </Route>
 
                 <Route path='*' element={<NotFound />} />
