@@ -3,15 +3,20 @@ import { Dialog, DialogPanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router';
 
-const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'Login', href: '/login' },
-    { name: 'Marketplace', href: '#' },
-    { name: 'Company', href: '#' },
-]
+export default function Header({
+    user,
+}) {
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-export default function Header() {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const navigation = [
+        { name: 'Home', href: '/' },
+        { name: 'Blog', href: '/blog' },
+        { name: 'Contact', href: '/contact' },
+    ];
+
+    if (!user) {
+        navigation.push({ name: 'Login', href: '/login' });
+    }
 
     return (
         <header className="absolute inset-x-0 top-0 z-50">
@@ -44,9 +49,14 @@ export default function Header() {
                 ))}
             </div>
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="#" className="text-sm/6 font-semibold text-gray-900">
-                Log in <span aria-hidden="true">&rarr;</span>
-                </a>
+                {user
+                    ? user.email
+                    : (
+                        <Link to="/login" className="text-sm/6 font-semibold text-gray-900">
+                            Log in <span aria-hidden="true">&rarr;</span>
+                        </Link>
+                    )
+                }
             </div>
             </nav>
             <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
