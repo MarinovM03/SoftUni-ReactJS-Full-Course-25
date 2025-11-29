@@ -1,4 +1,6 @@
-export default function Login() {
+export default function Login({
+    onSubmit,
+}) {
   return (
     <>
         <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 mt-24">
@@ -14,7 +16,7 @@ export default function Login() {
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <form action="#" method="POST" className="space-y-6">
+            <form className="space-y-6" onSubmit={onSubmit}>
                 <div>
                 <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">
                     Email address
