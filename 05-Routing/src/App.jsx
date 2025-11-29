@@ -15,6 +15,7 @@ import RouteGuard from './components/RouteGuard.jsx';
 import Profile from './components/Profile.jsx';
 import Login from './components/Login.jsx';
 import styles from './App.module.css';
+import CodeSplitting from './components/CodeSplitting.jsx';
 
 function App() {
     const [user, setUser] = useState({
@@ -52,6 +53,7 @@ function App() {
                 <Route path='/cities/:city?' element={<City />} />
                 <Route path='/redirect' element={<Redirect />} />
                 <Route path='/login' element={<Login />} />
+                <Route path='/code-splitting' element={<CodeSplitting />} />
 
                 <Route path='/admin' element={<Admin />}>
                     <Route index element={<Dashboard />} />
