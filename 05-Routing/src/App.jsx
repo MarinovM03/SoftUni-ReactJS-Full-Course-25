@@ -14,8 +14,9 @@ import Layout from './components/Layout.jsx';
 import RouteGuard from './components/RouteGuard.jsx';
 import Profile from './components/Profile.jsx';
 import Login from './components/Login.jsx';
-import styles from './App.module.css';
 import CodeSplitting from './components/CodeSplitting.jsx';
+import Characters from './components/Characters.jsx';
+import styles from './App.module.css';
 
 function App() {
     const [user, setUser] = useState({
@@ -34,6 +35,7 @@ function App() {
                 <Link to="/profile">Profile</Link>
                 <Link to="/admin">Admin</Link>
                 <Link to="/code-splitting">Code Splitting</Link>
+                <Link to="/characters">Characters</Link>
             </nav>
 
             {/* <nav>
@@ -55,6 +57,7 @@ function App() {
                 <Route path='/redirect' element={<Redirect />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/code-splitting' element={<CodeSplitting />} />
+                <Route path='/characters' element={<Characters />} />
 
                 <Route path='/admin' element={<Admin />}>
                     <Route index element={<Dashboard />} />
