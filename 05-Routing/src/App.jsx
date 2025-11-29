@@ -33,6 +33,7 @@ function App() {
                 <Link to="/cities:plovdiv">City</Link>
                 <Link to="/profile">Profile</Link>
                 <Link to="/admin">Admin</Link>
+                <Link to="/code-splitting">Code Splitting</Link>
             </nav>
 
             {/* <nav>
