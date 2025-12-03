@@ -19,7 +19,7 @@ export default function UncontrolledLogin() {
 
     return (
         <div className="w-full max-w-sm bg-white p-6 rounded-2xl shadow-md">
-            <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+            <h2 className="text-2xl font-bold mb-6 text-center">Uncontrolled Login</h2>
             <form className="space-y-4" onSubmit={submitHandler}>
                 <div>
                     <label className="block text-sm font-medium mb-1">Email</label>
