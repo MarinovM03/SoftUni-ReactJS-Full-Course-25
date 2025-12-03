@@ -1,9 +1,9 @@
-import './App.css'
+import UncontrolledLogin from "./components/uncontrolled-login/UncontrolledLogin";
 
 function App() {
     return (
         <>
-            <h1>Forms</h1>
+            <UncontrolledLogin />
         </>
     );
 }
