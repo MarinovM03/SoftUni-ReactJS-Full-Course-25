@@ -9,6 +9,7 @@ export default function Header() {
                 <Link to="/uncontrolled-form" className="hover:text-blue-600">Uncontrolled Form</Link>
                 <Link to="/controlled-form" className="hover:text-blue-600">Controlled Form</Link>
                 <Link to="/unified-controlled-form" className="hover:text-blue-600">Unified Controlled Form</Link>
+                <Link to="/focus" className="hover:text-blue-600">Use Ref</Link>
             </div>
         </nav>
     );
